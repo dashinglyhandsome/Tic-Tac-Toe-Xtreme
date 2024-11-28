@@ -1,0 +1,237 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin: 0 auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    background: #ddd;
+}
+
+.cell.taken {
+    pointer-events: none;
+}
+
+.status {
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #555;
+}
+
+/* Result Screen */
+.result-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+.result-container {
+    text-align: center;
+}
+
+.result-message {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .board {
+        grid-template-columns: repeat(3, 60px);
+    }
+    .cell {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+.mode-selection {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-bottom: 15px;
+
+    font-size: 1.2rem;
+
+    color: #fff;
+
+}
+
+.mode-selection label {
+
+    cursor: pointer;
+
+}
+
+/* Winning Combination Animation */
+
+@keyframes highlight {
+
+    0%, 100% {
+
+        background-color: #00ff00; /* Bright green */
+
+        color: #fff;
+
+    }
+
+    50% {
+
+        background-color: #006400; /* Darker green */
+
+        color: #fff;
+
+    }
+
+}
+
+.cell.winning {
+
+    animation: highlight 1s infinite alternate;
+
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 20;
+    font-size: 1.2rem;
+}
+
+.progress-bar {
+    width: 80%;
+    height: 20px;
+    background-color: #555;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50;
+    animation: loading 3s linear forwards;
+}
+
+.loading-text {
+    font-size: 1.5rem;
+}
+
+/* Animation for the progress bar */
+@keyframes loading {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.game-screen.hidden {
+    display: none;
+}
+
+/* Glowing Effect for X and O */
+.cell.x {
+    color: #00f; /* Blue for X */
+    text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f;
+}
+
+.cell.o {
+    color: #f00; /* Red for O */
+    text-shadow: 0 0 10px #f00, 0 0 20px #f00, 0 0 30px #f00;
+}
+
+
+
+
+
+
